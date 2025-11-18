@@ -1,0 +1,1211 @@
+/* ===== RESET Y VARIABLES (EXISTENTE) ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colores Bandera de Chile */
+    --chile-white: #FFFFFF;
+    --chile-blue: #0039A6;
+    --chile-red: #D52B1E;
+    --chile-dark-blue: #002B7F;
+    --chile-dark-red: #B22222;
+    
+    /* Colores complementarios */
+    --primary: #0039A6;
+    --secondary: #D52B1E;
+    --accent: #002B7F;
+    --light: #f8f9fa;
+    --dark: #2C2C2C;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --info: #17a2b8;
+    --gray-light: #f8f9fa;
+    --gray-medium: #6c757d;
+    --gray-dark: #343a40;
+}
+
+/* ===== ESTILOS BASE (EXISTENTE) ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: var(--chile-white);
+    padding-top: 80px;
+}
+
+/* ===== BARRA SUPERIOR DE USUARIO (EXISTENTE) ===== */
+.user-top-bar {
+    background: linear-gradient(135deg, var(--chile-blue), var(--chile-dark-blue));
+    color: var(--chile-white);
+    padding: 1px 0;
+    border-bottom: 2px solid var(--chile-red);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-top-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-info i {
+    font-size: 1.3rem;
+    color: #ffd700;
+}
+
+.user-greeting {
+    font-weight: 600;
+    font-size: 0.95em;
+    color: var(--chile-white);
+}
+
+.user-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-badge {
+    background: var(--chile-red);
+    color: var(--chile-white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.user-badge.user-badge {
+    background: var(--success);
+    color: var(--chile-white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.user-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.user-action-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--chile-white);
+    text-decoration: none;
+    font-size: 0.9em;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-action-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.user-action-link.logout:hover {
+    background: var(--chile-red);
+    border-color: var(--chile-red);
+}
+
+.user-action-link i {
+    font-size: 1em;
+}
+
+/* ===== NAVBAR (EXISTENTE) ===== */
+.navbar {
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 2000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.nav-logo h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--chile-blue);
+    font-size: 1.5rem;
+}
+
+.nav-logo span {
+    color: var(--chile-red);
+}
+
+/* Enlaces */
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--chile-red);
+}
+
+/* Toggle (icono hamburguesa) */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Menú móvil */
+.nav-mobile {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.nav-mobile.active {
+    display: flex;
+}
+
+.nav-mobile .nav-link {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+/* Enlace exclusivo de administrador */
+.admin-link {
+    color: #ffd700;
+    font-weight: 600;
+}
+
+.admin-link i {
+    margin-right: 6px;
+}
+
+.admin-link:hover {
+    color: #fff;
+    background-color: rgba(255, 215, 0, 0.15);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+/* ===== SECCIÓN DE BIENVENIDA (EXISTENTE) ===== */
+.welcome-section {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, 
+        rgba(0, 57, 166, 0.05) 0%, 
+        rgba(213, 43, 30, 0.05) 100%);
+    margin: 3rem 0;
+    border-radius: 25px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.welcome-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--chile-blue), var(--chile-red));
+}
+
+.welcome-section h1 {
+    color: var(--chile-blue);
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--chile-blue), var(--chile-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+/* ===== BANNER DE BIENVENIDA (EXISTENTE) ===== */
+.welcome-banner {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-bottom: 1px solid #cbd5e0;
+    padding: 25px 0;
+    margin-top: 120px;
+}
+
+/* ===== HERO SLIDER (EXISTENTE) ===== */
+.hero {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    margin-top: 120px;
+    background: #000;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, 
+        rgba(0, 57, 166, 0.9), 
+        rgba(213, 43, 30, 0.9));
+    padding: 1.5rem 2.5rem;
+    border-radius: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    z-index: 2;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+}
+
+.slide-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+}
+
+.slide-content p {
+    font-size: 1.2rem;
+    margin: 0;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+/* ===== CONTROLES DEL SLIDER (EXISTENTE) ===== */
+.slider-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    z-index: 4;
+}
+
+.slider-prev,
+.slider-next {
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--chile-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.slider-prev:hover,
+.slider-next:hover {
+    background: var(--chile-red);
+    color: white;
+    transform: scale(1.1);
+}
+
+.slider-dots {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.dot.active {
+    background: var(--chile-red);
+    transform: scale(1.3);
+    border-color: white;
+}
+
+.dot:hover {
+    background: var(--chile-blue);
+    transform: scale(1.2);
+}
+
+/* ===== CONTENEDOR PRINCIPAL (EXISTENTE) ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ===== SECCIONES GENERALES (EXISTENTE) ===== */
+section {
+    margin: 4rem 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--chile-blue);
+    font-size: 2.5rem;
+    font-weight: 700;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--chile-blue), var(--chile-red));
+    border-radius: 2px;
+}
+
+/* ===== GRID DE REGIONES (EXISTENTE) ===== */
+.region-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin: 3rem 0;
+}
+
+.region-card {
+    background: var(--chile-white);
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--dark);
+    box-shadow: 0 8px 30px rgba(0, 57, 166, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.region-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--chile-blue), var(--chile-red));
+}
+
+.region-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 57, 166, 0.15);
+    border-color: var(--chile-blue);
+}
+
+.region-card h3 {
+    color: var(--chile-blue);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.region-card p {
+    color: var(--gray-medium);
+    line-height: 1.6;
+}
+
+/* ===== RESTAURANTES DESTACADOS (EXISTENTE) ===== */
+.featured-restaurants {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.featured-restaurants h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--chile-blue);
+    font-size: 2.8rem;
+    font-weight: 800;
+    position: relative;
+}
+
+.featured-restaurants h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--chile-blue), var(--chile-red));
+    border-radius: 2px;
+}
+
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+    margin: 3rem 0;
+}
+
+.restaurant-card {
+    background: var(--chile-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 57, 166, 0.1);
+    transition: all 0.4s ease;
+    border: 1px solid #e2e8f0;
+    position: relative;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0, 57, 166, 0.15);
+    border-color: var(--chile-blue);
+}
+
+.container .restaurant-card::before {
+    content: '⭐ DESTACADO';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, var(--chile-red), var(--chile-dark-red));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(213, 43, 30, 0.3);
+}
+
+.restaurant-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.restaurant-card:hover img {
+    transform: scale(1.05);
+}
+
+.restaurant-info {
+    padding: 2rem;
+    position: relative;
+}
+
+.restaurant-info h3 {
+    color: var(--chile-blue);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+
+.region-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--chile-blue), var(--chile-dark-blue));
+    color: white;
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dish-info {
+    margin-bottom: 1.5rem;
+}
+
+.dish-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.dish-description {
+    color: var(--gray-medium);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.dish-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--chile-red);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dish-price::before {
+    content: '💰';
+    font-size: 1.2rem;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border-left: 4px solid var(--chile-blue);
+}
+
+.stars {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.star {
+    color: #e2e8f0;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.star.filled {
+    color: #fbbf24;
+}
+
+.rating-value {
+    font-weight: 700;
+    color: var(--chile-blue);
+    font-size: 1.1rem;
+}
+
+.rating-count {
+    color: var(--gray-medium);
+    font-size: 0.9rem;
+    margin-left: auto;
+}
+
+.restaurant-card .btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--chile-blue), var(--chile-dark-blue));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.restaurant-card .btn:hover {
+    background: linear-gradient(135deg, var(--chile-red), var(--chile-dark-red));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(213, 43, 30, 0.3);
+}
+
+.restaurant-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.85rem;
+    color: var(--gray-medium);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.location::before {
+    content: '📍';
+}
+
+.reviews::before {
+    content: '💬';
+}
+
+/* ===== BOTONES (EXISTENTE) ===== */
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--chile-blue), var(--chile-dark-blue));
+    color: var(--chile-white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, var(--chile-red), var(--chile-dark-red));
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(213, 43, 30, 0.3);
+    color: var(--chile-white);
+}
+
+/* ===== ANIMACIONES (EXISTENTE) ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*
+ * =========================================================
+ * ===== ESTILOS ESPECÍFICOS DEL FOOTER (NUEVOS) =====
+ * =========================================================
+ */
+
+.main-footer {
+    background-color: var(--chile-dark-blue); /* Fondo azul oscuro */
+    color: var(--chile-white);
+    padding: 4rem 0 0;
+    font-size: 1rem;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--chile-red);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.footer-section {
+    line-height: 1.8;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--chile-white);
+}
+
+.footer-logo .text-secondary {
+    color: var(--chile-red); /* Color de acento para 'Sabor' */
+}
+
+.footer-description {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+}
+
+.footer-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--chile-white);
+    position: relative;
+}
+
+.footer-heading::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--chile-red);
+    margin-top: 5px;
+    border-radius: 2px;
+}
+
+/* Enlaces de Navegación */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: var(--chile-white);
+    transform: translateX(5px);
+}
+
+/* Información de Contacto */
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.contact-info i {
+    color: var(--chile-red);
+    font-size: 1.1rem;
+}
+
+/* Redes Sociales */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--chile-white);
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+    background-color: var(--chile-red);
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* Newsletter */
+.newsletter-title {
+    margin-top: 2rem;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se apilen en móvil */
+    gap: 10px;
+}
+
+.newsletter-input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    color: var(--dark);
+    min-width: 150px;
+}
+
+.btn-subscribe {
+    background: var(--chile-red);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-subscribe:hover {
+    background: var(--chile-dark-red);
+    transform: translateY(-1px);
+}
+
+/* Footer Bottom (Derechos de Autor) */
+.footer-bottom {
+    background-color: var(--chile-dark-blue); /* Ligeramente más oscuro si fuera necesario, pero mantenemos el mismo color */
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+}
+
+.footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-meta-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.meta-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.meta-link:hover {
+    color: var(--chile-red);
+}
+
+.separator {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== RESPONSIVE DESIGN (EXISTENTE) ===== */
+@media (max-width: 768px) {
+    body {
+        padding-top: 100px;
+    }
+    
+    .user-top-bar {
+        padding: 6px 0;
+    }
+    
+    .user-top-container {
+        padding: 0 1rem;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .user-info {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .user-actions {
+        gap: 10px;
+    }
+    
+    .user-action-link span {
+        display: none;
+    }
+    
+    .user-action-link {
+        padding: 6px 12px;
+    }
+    
+    .navbar {
+        top: 32px;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .hero {
+        height: 70vh;
+        margin-top: 80px;
+    }
+    
+    .slide-content {
+        bottom: 80px;
+        padding: 1.2rem 2rem;
+        margin: 0 1rem;
+    }
+    
+    .slide-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .slide-content p {
+        font-size: 1rem;
+    }
+    
+    .slider-controls {
+        bottom: 20px;
+        gap: 1.5rem;
+    }
+    
+    .slider-prev,
+    .slider-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+    
+    .restaurant-card {
+        margin: 0 0.5rem;
+    }
+    
+    .restaurant-info {
+        padding: 1.5rem;
+    }
+    
+    .restaurant-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .featured-restaurants h2 {
+        font-size: 2.2rem;
+    }
+    
+    .region-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .welcome-section {
+        padding: 3rem 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .welcome-section h1 {
+        font-size: 2.5rem;
+    }
+
+    /* FOOTER RESPONSIVE */
+    .footer-container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem 3rem;
+        text-align: center;
+    }
+
+    .footer-heading::after {
+        margin: 5px auto 0;
+    }
+
+    .footer-links,
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-info p {
+        justify-content: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+
+    .newsletter-form {
+        justify-content: center;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .newsletter-input,
+    .btn-subscribe {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .footer-bottom .container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-meta-links {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .separator {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 90px;
+    }
+    
+    .user-top-bar {
+        top: 0;
+    }
+    
+    .navbar {
+        top: 28px;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero {
+        height: 60vh;
+    }
+    
+    .slide-content {
+        bottom: 70px;
+        padding: 1rem 1.5rem;
+    }
+    
+    .slide-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .slide-content p {
+        font-size: 0.9rem;
+    }
+    
+    .slider-controls {
+        gap: 1rem;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .restaurant-info {
+        padding: 1.2rem;
+    }
+    
+    .rating {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.5rem;
+    }
+    
+    .rating-count {
+        margin-left: 0;
+    }
+    
+    .restaurant-meta {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: start;
+    }
+    
+    .region-card,
+    .restaurant-card {
+        margin: 0 0.5rem;
+    }
+    
+    section {
+        margin: 2rem 0;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-section {
+        padding: 2rem 1rem;
+        margin: 1rem 0;
+    }
+    
+    .welcome-section h1 {
+        font-size: 2rem;
+    }
+    
+}

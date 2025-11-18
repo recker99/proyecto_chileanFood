@@ -1,0 +1,356 @@
+/* Auth Styles - Colores Chilenos VISIBLES */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, 
+        var(--chile-blue) 0%, 
+        var(--chile-white) 30%, 
+        var(--chile-red) 100%);
+    padding: 2rem;
+    position: relative;
+}
+
+/* ELIMINAMOS el ::before que tapaba los colores */
+/* .auth-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 1;
+} */
+
+.auth-card {
+    background: var(--chile-white);
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0, 57, 166, 0.25);
+    width: 100%;
+    max-width: 480px;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+    border: 3px solid;
+    border-image: linear-gradient(135deg, var(--chile-blue), var(--chile-red)) 1;
+}
+
+.auth-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 57, 166, 0.35);
+}
+
+.auth-card h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--chile-blue);
+    font-size: 2.2rem;
+    font-weight: 800;
+    position: relative;
+}
+
+.auth-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--chile-blue), var(--chile-red));
+    border-radius: 2px;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: #5a6c7d;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Form Container - Márgenes consistentes */
+.form-container {
+    width: 100%;
+}
+
+/* Form Groups - Márgenes perfectamente consistentes */
+.form-group {
+    margin-bottom: 1.8rem;
+    position: relative;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: var(--chile-blue);
+    font-weight: 700;
+    font-size: 1rem;
+    padding-left: 0.3rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border: 2px solid #d1d9e6;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+    font-family: inherit;
+    color: #1e293b;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--chile-blue);
+    background: var(--chile-white);
+    box-shadow: 0 0 0 4px rgba(0, 57, 166, 0.15);
+    transform: translateY(-2px);
+}
+
+.form-group input::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+/* Messages - Márgenes consistentes */
+.error {
+    background: linear-gradient(135deg, var(--chile-red), #b91c1c);
+    color: white;
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.8rem;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(213, 43, 30, 0.3);
+    border-left: 4px solid #b91c1c;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.success {
+    background: linear-gradient(135deg, #10b981, #047857);
+    color: white;
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.8rem;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    border-left: 4px solid #047857;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Buttons - AHORA SÍ SE VERÁN LOS COLORES */
+.auth-card .btn {
+    width: 100%;
+    padding: 1.3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--chile-blue), #002b7f);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 0.5rem;
+    box-shadow: 0 8px 20px rgba(0, 57, 166, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-card .btn:hover {
+    background: linear-gradient(135deg, var(--chile-red), #b91c1c);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(213, 43, 30, 0.4);
+    color: white;
+}
+
+.auth-card .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(213, 43, 30, 0.4);
+}
+
+/* Links */
+.auth-card p {
+    text-align: center;
+    margin: 2rem 0 0 0;
+    color: #5a6c7d;
+    font-size: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    width: 100%;
+}
+
+.auth-card a {
+    color: var(--chile-blue);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.auth-card a:hover {
+    color: var(--chile-red);
+}
+
+.auth-card a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--chile-red);
+    transition: width 0.3s ease;
+}
+
+.auth-card a:hover::after {
+    width: 100%;
+}
+
+/* Password strength indicator */
+.password-strength {
+    margin: 0.8rem 0 0 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.strength-weak {
+    color: var(--chile-red);
+}
+
+.strength-medium {
+    color: #f59e0b;
+}
+
+.strength-strong {
+    color: #10b981;
+}
+
+/* Responsive auth */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 1.5rem;
+        background: linear-gradient(135deg, 
+            var(--chile-blue) 0%, 
+            var(--chile-white) 40%, 
+            var(--chile-red) 100%);
+    }
+    
+    .auth-card {
+        padding: 2.5rem 2rem;
+        margin: 0;
+        max-width: 420px;
+    }
+    
+    .auth-card h2 {
+        font-size: 2rem;
+    }
+    
+    .auth-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.6rem;
+    }
+    
+    .form-group input {
+        padding: 1.1rem 1.3rem;
+        font-size: 1rem;
+    }
+    
+    .auth-card .btn {
+        padding: 1.2rem;
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 1rem;
+        background: linear-gradient(135deg, 
+            var(--chile-blue) 0%, 
+            var(--chile-white) 50%, 
+            var(--chile-red) 100%);
+    }
+    
+    .auth-card {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+        margin: 0.5rem;
+    }
+    
+    .auth-card h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .auth-card h2::after {
+        width: 60px;
+        height: 3px;
+    }
+    
+    .auth-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.8rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+        font-size: 0.95rem;
+        margin-bottom: 0.7rem;
+    }
+    
+    .form-group input {
+        padding: 1rem 1.2rem;
+        font-size: 0.95rem;
+        border-radius: 10px;
+    }
+    
+    .auth-card .btn {
+        padding: 1.1rem;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+}
+
+/* Asegurar que las variables de color estén definidas */
+:root {
+    /* Colores Bandera de Chile */
+    --chile-white: #FFFFFF;
+    --chile-blue: #0039A6;
+    --chile-red: #D52B1E;
+    --chile-dark-blue: #002B7F;
+    --chile-dark-red: #B22222;
+    
+    /* Colores complementarios */
+    --primary: #0039A6;
+    --secondary: #D52B1E;
+    --accent: #002B7F;
+    --light: #f8f9fa;
+    --dark: #2C2C2C;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --info: #17a2b8;
+    --gray-light: #f8f9fa;
+    --gray-medium: #6c757d;
+    --gray-dark: #343a40;
+}
