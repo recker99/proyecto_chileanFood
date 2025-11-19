@@ -65,6 +65,9 @@ Servidor web local:
 - Página de zona norte
   ![Restaurantes Zona Norte](assets/images/public/zona-norte.jpg)
 
+- Página detalle restaurante
+  ![Detalle Restaurantes](assets/images/public/rest-detail.jpg)
+
 - Contacto
   ![Contacto](assets/images/public/contacto.jpg)
 
